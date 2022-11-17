@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <link rel="icon" href="imagen/gaviotas.ico" type="image/png">
+        <title>Nuestra Carta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="encabezado">
+            <nav>
+                <a class="enlace">
+                    <img data-src="imagen/gaviotas.png" class="logo">
+                </a>
+                <div>
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                    <ul>
+                        <label class="cerrar" for="check">
+                            <i class="fa-solid fa-x"></i>
+                        </label>
+                        <li><a class="active" th:href="@{/}">Inicio</a></li>
+                        <li><a th:href="@{/carta}">Nuestra Carta</a></li>
+
+                        <li><a th:href="@{/ubicacion}">Ubícanos</a></li>
+                        <li th:if="${conexion.estado == 'on'}">
+                            <div class="dropdown">
+                                <button id="btn-user" class="dropbtn">
+                                    <i class="fa-solid fa-user" style="color: rgb(0, 253, 30); padding-right: 5px;"></i>
+                                    <label style="color: white; cursor: pointer" th:text="'Hola ' + ${client.nombres}"></label>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a th:href="@{/miCuenta}">Mi Cuenta</a>
+                                    <a th:href="@{/misPedidos}">Mis Pedidos</a>
+                                    <hr size="2px" color="black">
+                                    <a th:href="@{/cerrarSesion}" onclick="return confirm('Confirmar cierre de sesión')">Cerrar sesión</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li th:unless="${conexion.estado == 'on'}">
+                            <a th:href="@{/logueo}"><label  class="fa-solid fa-user" style=" padding-right: 5px"></label>Iniciar sesión</a>
+                        </li>
+                        <li style="position: relative">
+                            <a th:href="@{/pedidoM}">
+                                <i class="fa-solid fa-cart-shopping" style="margin-left: 15px"></i>
+                                <span th:text="'S/. ' + ${monto}" style="margin-right: 15px"></span> 
+                                <span id="cart_menu_num" data-action="cart-can" class="badge rounded-circle" th:text="${pedido.listaProductosPedidos.size}"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section class="menu contenedor">
+            <h2 class="texto-platillos">Platillos populares</h2>
+            <div class="botones-platillos">
+                <button class="todos btn btn-color">Todos</button>
+                <button id="Fondos" class="fondos btn btn-color">Fondos</button>
+                <button id="Mariscos" class="mariscos btn btn-color">Mariscos</button>
+                <button id="Refrescos" class="refrescos btn btn-color">Refrescos</button>
+                <button id="Cervezas" class="cervezas btn btn-color">Cervezas</button>
+            </div>
+            <br><br>
+            <div class="platillos">
+                <th:block th:each="prod: ${productos}">
+                    <div class="platillo" th:data-platillo="${prod.categoria.nombre_categoria}">
+                        <img th:data-src="${prod.dir_imagen}" th:alt="${prod.categoria.nombre_categoria}">
+                        <h2 th:text="${prod.nombre_producto}"></h2>
+                        <p th:text="${prod.descripcion}"></p>
+                        <hr class="divider" size="1px" color="black" style="margin-top: 5%; margin-bottom: 5%">
+                        <div class="precio">
+                            <p th:text="'S/. ' + ${prod.precio_unitario}"></p>
+                            <a id=btn-cart th:class="${prod.nombre_producto}" style="cursor: pointer" th:href="@{/pedido(id=${prod.id_producto})}"><i class="fas fa-shopping-basket"></i></a>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+        </section>
+        <br>
+        <div class="pie-pagina ">
+            <div class="contenedor-piepagina contenedor">
+                <div class="info">
+                    <h3>Dirección</h3>
+                    <br>
+                    <p>C. Juan Fanning 408, Miraflores 15074</p>
+                </div>
+                <div class="info">
+                    <h3>Días especiales</h3>
+                    <br>
+                    <p>Sabados y Domingos 8am - 7pm</p>
+                    <p>Teléfono : 01 4475579</p>
+                </div>
+                <div class="info">
+                    <h3>Horarios</h3>
+                    <br>
+                    <p>Lunes - Domingo 8am - 7pm</p>
+                    <div class="redes-sociales redes-pie">
+                        <i class="fab fa-facebook-square"></i>
+                        <i class="fab fa-twitter-square"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>Todos los derechos reservados &copy; 2022 Las Gaviotas, desarrollado por el GRUPO 5</p>
+        </footer>
+        <script src="js/java.js"></script>
+    </body>
+</html>

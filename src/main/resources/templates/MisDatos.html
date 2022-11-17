@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Datos Cliente</title>
+        <link rel="stylesheet" href="/css/sign.css">
+        <script src="https://kit.fontawesome.com/250295376e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="login-box">
+            <img src="imagen/gaviotas.png" class="avatar" alt="Avatar Image">
+            <h1>Tus Datos</h1>
+            <!-- NOMBRES INPUT -->
+            <label for="nombres">Nombres</label>
+            <input type="text" th:value="${client.nombres}" readonly="readonly" >
+            <!-- APELLIDOS INPUT -->
+            <label for="apellidos">Apellidos</label>
+            <input type="text" th:value="${client.apellidos}" readonly="readonly">
+            <!-- DNI INPUT -->
+            <label for="dni">DNI</label>
+            <input type="text" th:value="${client.dni}" readonly="readonly">
+            <!-- CORREO INPUT -->
+            <label for="correo">Correo</label>
+            <input type="email" th:value="${client.correo}" readonly="readonly">
+            <!-- TELEFONO INPUT -->
+            <label for="telefono">Telefono</label>
+            <input type="text" th:value="${client.telefono}" readonly="readonly">
+            <!-- DISTRITO INPUT -->
+            <label for="telefono">Distrito</label>
+            <input type="text" th:value="${client.distrito.nombre_distrito}" readonly="readonly">
+            <!-- DIRECCION INPUT -->
+            <label for="password">Direccion</label>
+            <input type="text" th:value="${client.direccion}" readonly="readonly">
+            <!-- USUARIO INPUT -->
+            <label for="username">Usuario</label>
+            <input type="text" th:value="${client.usuario}" readonly="readonly">
+            <!-- PASSWORD INPUT -->
+            <label for="password">Password</label>
+            <input id="password" type="text" th:value="${client.clave}" readonly="readonly">
+            <a th:href="@{/}"><input  type="submit" value="Retornar"></a>
+        </div>
+    </body>
+</html>
+

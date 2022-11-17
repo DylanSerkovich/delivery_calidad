@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Registro Cliente</title>
+        <link rel="stylesheet" href="/css/sign.css">
+    </head>
+    <body>
+        <div class="login-box">
+            <img src="imagen/gaviotas.png" class="avatar" alt="Avatar Image">
+            <h1>Sign in</h1>
+            <form th:action="@{/registrarUsuarioP}" method="post" th:object="${cliente}">
+                <!-- NOMBRES INPUT -->
+                <label for="nombres">Nombres</label>
+                <input type="text" name="nombres" th:field="*{nombres}" placeholder="Enter Names" required="required">
+                <!-- APELLIDOS INPUT -->
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" th:field="*{apellidos}" placeholder="Enter Surnames" required="required">
+                <!-- DNI INPUT -->
+                <label for="password">DNI</label>
+                <input type="number" name="dni" th:field="*{dni}" placeholder="Enter Dni" required="required" minlength="8" maxlength="8" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                <!-- CORREO INPUT -->
+                <label for="password">Correo</label>
+                <input type="email" name="correo" th:field="*{correo}" placeholder="Enter Mail" required="required">
+                <!-- TELEFONO INPUT -->
+                <label for="password">Telefono</label>
+                <input type="text" name="telefono" th:field="*{telefono}" placeholder="Enter Phone" required="required">
+                <!-- DISTRITO INPUT -->
+                <label for="password">Distrito</label>
+                <select class="form-select" name="distrito" th:field="*{distrito}">
+                    <!--div th:each="dist: ${distritos}"-->
+                    <option th:each="dist: ${distritos}" th:value="${dist.id_distrito}" style="background-color: black" th:text="${dist.nombre_distrito}"></option>
+                    <!--/div-->
+                </select>
+                <!-- DIRECCION INPUT -->
+                <label for="password">Direccion</label>
+                <input type="text" name="direccion" th:field="*{direccion}" placeholder="Enter Direction" required="required">
+                <!-- USUARIO INPUT -->
+                <label for="username">Usuario</label>
+                <input type="text" name="usuario" th:field="*{usuario}" placeholder="Enter Username" required="required">
+                <!-- PASSWORD INPUT -->
+                <label for="password">Password</label>
+                <input type="password" name="clave" th:field="*{clave}" placeholder="Enter Password" required="required">
+
+                <input type="submit" value="LogIn">
+            </form>
+        </div>
+    </body>
+</html>

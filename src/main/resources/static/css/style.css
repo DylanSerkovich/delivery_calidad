@@ -1,0 +1,574 @@
+/*-------------Menu Principal-------------*/
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+    overflow-x: hidden;
+}
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+    width: 95%;
+}
+h1,h2{
+    font-family: 'Arima Madurai',cursive;
+}
+h3, p, a{
+    font-family: 'Mulish',sans-serif;
+}
+img{
+    max-width: 100%;
+}
+.btn{
+    margin-top: 1%;
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    text-transform: capitalize;
+    padding: 1rem 5rem;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+}
+@media(min-width: 768px) {
+    .btn{
+        font-size: 2.2rem;
+    }
+}
+
+.bordes{
+    border: 3px solid white;
+}
+@media(min-width: 768px) {
+    .bordes{
+        border: 4px solid white;
+    }
+}
+.bordes:hover{
+    color: #ed9532;
+    background-color: white;
+}
+/*Cantidad de productos(Pedido)*/
+#cart_menu_num {
+    position: absolute;
+    top: 20%;
+    left: 95%;
+    background: #fd7e14;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 2px;
+    font-size: 15px;
+}
+/*barra menu*/
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+nav{
+    background: black;
+    height: 80px;
+    width: 100%;
+}
+.enlace{
+    position: absolute;
+    padding: 20px 50px;
+}
+.logo{
+    height: 100px;
+    margin-top: -25%;
+    background-size: cover;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+li a.active, li a:hover{
+    background: #ed9532;
+    transition: .5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: #fff;
+    float: right;
+    line-height: 80px;
+    margin-top: 25px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+.cerrar{
+    font-size: 20px;
+    color: #fff;
+    float: right;
+    line-height: 80px;
+    margin-top: 25px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+
+/*Responsive para dispositivos moviles*/
+@media (max-width: 952px){ /*tabletas modificacion*/
+    .enlace{
+        padding-left: 20px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 858px){ /*celulares modificacion*/
+    .logo2{
+        top: 80px;
+        left: -100%;
+    }
+    .checkbtn{
+        display: block;
+    }
+    .cerrar{
+        display: block;
+    }
+    ul{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: #272829;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+        z-index: 3;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    li a:hover , li a.active{
+        background: none;
+        color: #ff8207;
+    }
+    #check:checked ~ ul{
+        left:0;
+    }
+}
+
+/*video de presentacion(Menu Principal)*/
+.contenido-header{
+    position: relative;
+}
+.contenido-header::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+.texto-encabezado{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.texto-encabezado h2{
+    color: white;
+    font-size: 4rem;
+}
+@media(min-width: 768px) {
+    .texto-encabezado h2{
+        font-size: 8rem;
+    }
+}
+video{
+    width: 100%;
+    height: auto;
+}
+
+/*-------------Carta-------------*/
+/*platos*/
+.menu{
+    padding-top: 4rem;
+}
+.texto-platillos{
+    font-weight: bold;
+    text-align: center;
+    font-size: 7rem;
+    margin-bottom: 5%;
+    font-family: 'Oswald', sans-serif;
+}
+.texto-platillos-subtitulo{
+    font-weight: bold;
+    text-align: left;
+    font-size: 4rem;
+    margin-bottom: 5%;
+    font-family: 'Oswald', sans-serif;
+}
+/*--botones del plato--*/
+.botones-platillos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 18%;
+}
+.botones-platillos button{
+    flex: 0 0 calc(50% - 1rem);
+    padding: 1rem 3rem;
+}
+@media(min-width: 768px) {
+    .botones-platillos{
+        display: inline-block;
+    }
+    .botones-platillos button{
+        flex: unset;
+    }
+}
+@media(min-width: 768px) {
+    .platillos{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap:wrap;
+    }
+}
+.btn-color{
+    background-color: #ff8207;
+    border: none;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-family: 'Mulish', sans-serif;
+}
+.btn-color:hover{
+    background-color: orangered;
+    color: black;
+}
+
+.platillo{
+    flex: 0 0 calc(33.3% - 1rem);
+    border: 1px solid #e1e1e1;
+    padding: 2rem;
+    border-radius: 5px;
+}
+.platillo h2{
+    text-align: center;
+}
+.platillo p{
+    font-size: 1.8rem;
+}
+.precio{
+    display: flex;
+    justify-content: space-between;
+}
+.precio p{
+    font-weight: bold;
+    font-size: 2rem;
+}
+/*.precio button{
+    padding:1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    height: 3.8rem;
+}*/
+.platillo:hover{
+    background-color:#333738;
+    color: white;
+}
+
+.platillo:hover .divider{
+    border-color: white;
+}
+
+#btn-cart{
+    padding:1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: red;
+    color: white;
+    height: 3.8rem;
+}
+#btn-cart:hover{
+    background-color: orange;
+}
+/*-------------Pie de pagina-------------*/
+.pie-pagina{
+    background-color: rgb(20,20,20);
+    padding: 5rem;
+}
+@media(min-width:768px){
+    .contenedor-piepagina{
+        display: flex;
+        justify-content: space-between;
+    }
+
+}
+.info{
+    flex: 0 0 calc(25% - 1rem);
+    margin-bottom: 2rem;
+}
+.info h3, .info p{
+    color: white;
+    text-align: center;
+}
+.info h3{
+    font-size: 2.2rem;
+}
+.info p{
+    font-size: 1.8rem;
+}
+
+.redes-pie{
+    text-align: center;
+}
+.redes-sociales{
+    margin-top: 0.5%;
+    font-size: 3rem;
+    color: white;
+}
+.footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    font-size: 2rem;
+}
+/*----Barra Usuario-----*/
+.dropbtn {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 7px 13px;
+    text-transform: uppercase;
+    border-radius: 3px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 210px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 3;
+}
+
+.dropdown-content a {
+    color: #fff;
+    background-color: slategrey;
+    padding: 0px 0px 0px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 0;
+}
+
+.dropdown-content a:hover {
+    background-color: #ed9532;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*#btn-user:focus ~ .dropdown-content{ /*para activar el menu*/
+/*display: block;
+}*/
+
+.dropdown:hover .dropbtn {
+    transition: all .5s;
+    background-color: #ed9532;
+}
+
+/*#btn-user:focus{
+  background-color: #ed9532;
+}*/
+
+/*------PEDIDO------*/
+/*palabras tabla*/
+.cabeza{
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5%;
+    font-family: 'Oswald', sans-serif;
+}
+
+/*para boostar no malogre*/
+.decoracion-boss{
+    text-decoration: none;
+}
+.decoracion-boss:hover{
+    color: white;
+    background-color: #ed9532 !important;
+}
+/*botones para pedidos*/
+.boton-pedido{
+    background-color: #ed9532;
+    margin-top: 2%;
+    display: inline-block;
+    font-family: 'Mulish',sans-serif;
+    cursor: pointer;
+    border-radius: 15px;
+}
+.boton-pedido:hover{
+    background-color: black;
+    color: white;
+}
+.letra-lado{
+    justify-content: space-between!important;
+    font-family: 'Mulish',sans-serif;
+}
+.d-flex{
+    display: flex!important;
+    flex-direction: row;
+}
+/*tachito de basura*/
+.fa{
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+}
+.boton-derecha{
+    background-color: #ed9532;
+    margin-top: 2%;
+    font-family: 'Mulish',sans-serif;
+    cursor: pointer;
+    text-align: right;
+    display: block;
+    float: right;
+    border-radius: 15px;
+}
+.boton-derecha:hover{
+    background-color: black;
+    color: white;
+}
+
+.texto-subtotal-izquierda{
+    margin-left: 7%;
+}
+
+.texto-preciosubtotal-derecha{
+    margin-left: 63.2%;
+}
+/*Tamano de los botones "cantidad"*/
+.btn-group a, .btn-group input{
+    color:black;
+    padding: 5px 10px;
+    font-size: 100%;
+}
+
+.btn-trash a{
+    padding: 5px 10px;
+    color: red;
+}
+
+.modal-body label, .modal-body input , .modal-body select{
+    font-size: 15px;
+}
+
+/*Menu Pedido con bootstrap y css propio*/
+.menu-pedido li a{
+    text-decoration: none;
+    color: white;
+}
+.menu-pedido .dropdown button{
+    padding: 0px 0px;
+}
+/*Historial de Pedidos con bootstrap y css propio*/
+.btn-eye a{
+    padding: 2px 12px;
+}
+.btn-outline-orange{
+   color: darkorange;
+   border-color: darkorange; 
+}
+.btn-outline-orange:hover{
+    background-color: darkorange;
+}
+
+/*para boostar no malogre*/
+.decoracion-boss{
+    text-decoration: none;
+}
+.decoracion-boss:hover{
+    color: white;
+    background-color: #ed9532 !important;
+}
+/*ubicacion*/
+.map{
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+}
+.map-div{
+    height: 50vh;
+}
+.contacto{
+    margin: 50px auto;
+    max-width: 80%;
+    min-width: 400px;
+
+}
+.email{
+    text-decoration:none;
+}
+.icon{
+    font-size: 25px;
+    margin: 5px;
+}
+.icon-phone{
+    color: green;
+}
+.icon-ubi{
+    color: red;
+}
+.icon-email{
+    color: cornflowerblue;
+}
+.pad{
+    padding-right: 20px;
+}
+.marco3{
+    border:4px solid #ed9532;
+    box-shadow: 0 0 0 0.25rem rgb(255 105 1 / 50%);
+}
+.posicion{
+    margin: 11% 0% 0% 10%;
+}
